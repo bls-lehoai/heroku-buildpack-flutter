@@ -8,7 +8,7 @@ else
     DEPLOY_DIR="/app/"
 fi
 
-HEROKU_PORT = "${PORT}"
+HEROKU_PORT="$PORT"
 
 cat <<EOF
 ---
