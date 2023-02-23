@@ -1,5 +1,9 @@
 #!/bin/sh
 
+function print() {
+  echo "-----> $1"
+}
+
 BUILD_DIR=${1:-}
 # If the FLUTTER_CLEANUP is in false, or in true.
 if [ -d $BUILD_DIR/build/web ]; then
@@ -9,10 +13,11 @@ else
 fi
 
 HEROKU_PORT="$PORT"
-
+print "start on port"
+print HEROKU_PORT
 cat <<EOF
 ---
 default_process_types:
-    web: /app/dart-sdk/bin/dart pub global run dhttpd --host 0.0.0.0 --port ${HEROKU_PORT} --path ${DEPLOY_DIR}
+    web: /app/dart-sdk/bin/dart pub global run dhttpd --host 0.0.0.0 --port 12341 --path ${DEPLOY_DIR}
 
 EOF
